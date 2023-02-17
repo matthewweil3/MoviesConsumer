@@ -1,0 +1,76 @@
+﻿@page
+@model MoviesConsumer.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <img src="@Model.movie.Poster" width=200 height=350/> <br /><br />
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.movie.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.movie.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.movie.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.movie.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.movie.Released)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.movie.Released)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.movie.Director)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.movie.Director)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.movie.Actors)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.movie.Actors)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.movie.Plot)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.movie.Plot)
+        </dd>
+    </dl>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Rating</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model.movie.Ratings)
+       {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+            </tr>
+       }
+    </tbody>
+</table>
+<div>
+    <a asp-page="./Search">Back to List</a>
+</div>
+
